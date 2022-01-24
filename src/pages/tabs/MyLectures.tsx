@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList } from '../../App';
+import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
 
 type MyLecturesScreenNavigationProp = BottomTabNavigationProp<

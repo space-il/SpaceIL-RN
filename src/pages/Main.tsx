@@ -12,7 +12,7 @@ interface Props {
   navigation: MainScreenNavigationProp;
 }
 
-type TabNavParamList = {
+export type TabNavParamList = {
   Profile: {};
   Search: {};
   MyLectures: {};
