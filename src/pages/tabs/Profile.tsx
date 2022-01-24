@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList } from '../../App';
+import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
 
 type ProfileScreenNavigationProp = BottomTabNavigationProp<
@@ -16,7 +16,7 @@ interface Props {
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <Text>PROFILEEE</Text>
+      <Text>PROFILE</Text>
     </View>
   );
 };
