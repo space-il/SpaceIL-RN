@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
@@ -16,7 +16,9 @@ interface Props {
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <Text>PROFILE</Text>
+      <Pressable onPress={() => navigation.navigate('Popup', {})}>
+        <Text>Popup</Text>
+      </Pressable>
     </View>
   );
 };
