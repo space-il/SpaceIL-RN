@@ -31,7 +31,9 @@ const Bubble = ({ bubbleText, filterAction }: BubbleProp) => {
     <TouchableOpacity
       style={[styles.bubble, getColor(isSelected)]}
       onPress={onPress}>
-      <Text style={getTextColor(isSelected)}>{bubbleText}</Text>
+      <Text style={getTextColor(isSelected)} numberOfLines={1}>
+        {bubbleText}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -52,19 +54,17 @@ const FiltersBubbles = ({ data }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
     flexDirection: 'row',
     flex: 1,
     alignSelf: 'flex-end',
   },
   bubble: {
     height: 42,
-    width: 143,
+    width: 150,
     borderRadius: 20,
     justifyContent: 'center',
     marginRight: 6,
-    paddingRight: 12,
-    zIndex: 100,
+    paddingHorizontal: 12,
   },
   bubbleText: {
     fontFamily: 'Abraham',
