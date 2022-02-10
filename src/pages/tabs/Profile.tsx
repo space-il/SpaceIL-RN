@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
@@ -21,9 +21,9 @@ const Tab = createMaterialTopTabNavigator();
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-        <View style={{height: 100, alignItems: 'center', justifyContent: 'center',}}>
-            <Text>PROFILE HEADER (AVATAR, NAME)</Text>
-        </View>
+      <View style={styles.profileHeaderStyle}>
+        <Text>PROFILE HEADER (AVATAR, NAME)</Text>
+      </View>
 
       <ProfileNavigationBar navigation={navigation} />
     </View>
@@ -37,10 +37,9 @@ const ProfileNavigationBar = ({ navigation }: Props) => {
         tabBarIndicatorStyle: styles.tabBarIndicatorStyle,
         tabBarLabelStyle: {
           fontSize: 20,
-
         },
-        tabBarActiveTintColor: '#141622',
-        tabBarInactiveTintColor: '#686E74',
+        tabBarActiveTintColor: COLORS.BLACK,
+        tabBarInactiveTintColor: COLORS.GRAY,
       }}>
       <Tab.Screen
         name="פרטי מגורים"
@@ -64,8 +63,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabBarIndicatorStyle: {
-    backgroundColor: '#00A3DA',
+    backgroundColor: COLORS.LIGHT_BLUE,
     height: 4,
+  },
+  profileHeaderStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
   },
 });
 
