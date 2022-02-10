@@ -40,15 +40,16 @@ const ProfileNavigationBar = ({ navigation }: Props) => {
         },
         tabBarActiveTintColor: COLORS.BLACK,
         tabBarInactiveTintColor: COLORS.GRAY,
-      }}>
-      <Tab.Screen
-        name="פרטי מגורים"
-        component={HomeDetails}
-        initialParams={navigation}
-      />
+      }}
+      initialRouteName={'פרטי מגורים'}>
       <Tab.Screen
         name="העדפות חיפוש"
         component={SearchPreferences}
+        initialParams={navigation}
+      />
+      <Tab.Screen
+        name="פרטי מגורים"
+        component={HomeDetails}
         initialParams={navigation}
       />
     </Tab.Navigator>
