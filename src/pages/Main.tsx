@@ -23,7 +23,7 @@ const BottomTabNav = createBottomTabNavigator<TabNavParamList>();
 const Main = ({ navigation }: Props) => {
   return (
     <BottomTabNav.Navigator>
-      <BottomTabNav.Screen name="Profile" component={Profile} />
+      <BottomTabNav.Screen name="Profile" component={Profile} initialParams={navigation} />
       <BottomTabNav.Screen name="Search" component={Search} />
       <BottomTabNav.Screen name="MyLectures" component={MyLectures} />
     </BottomTabNav.Navigator>
