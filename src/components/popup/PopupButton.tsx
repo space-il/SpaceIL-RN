@@ -9,7 +9,7 @@ export enum PopupButtonType {
 interface Props {
   text: string;
   type: PopupButtonType;
-  action?: () => void;
+  action: () => void;
   cancelAction?: () => void;
   customStyle?: ViewStyle;
 }

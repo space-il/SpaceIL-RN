@@ -3,20 +3,31 @@ import { Modal, StyleSheet, View } from 'react-native';
 import { PopupButton, PopupButtonType } from './PopupButton';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constants/Constants';
 import { useAppSelector } from '../../app/Hooks';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { TabNavParamList } from '../../pages/Main';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../App';
+
+type PopupNavigationProp = StackNavigationProp<RootStackParamList, 'Popup'>;
 
 interface Props {
+  navigation: PopupNavigationProp;
   content?: ReactElement;
   showConfirmButton?: boolean;
   confirmAction?: () => void;
   showCancelButton?: boolean;
 }
 
-const Popup = ({ content }: Props) => {
+const Popup = ({ navigation, content }: Props) => {
   return (
     <View style={styles.container}>
       {/*{content}*/}
-      <PopupButton text="Cancel" type={PopupButtonType.CONFIRM} />
-      <PopupButton text="Cancel" type={PopupButtonType.CANCEL} />
+      <PopupButton text="OK" type={PopupButtonType.CONFIRM} action={() => {}} />
+      <PopupButton
+        text="Cancel"
+        type={PopupButtonType.CANCEL}
+        action={navigation.goBack}
+      />
     </View>
   );
 };
@@ -31,5 +42,6 @@ const styles = StyleSheet.create({
     // height: SCREEN_HEIGHT,
     // width: SCREEN_WIDTH,
     borderWidth: 1,
+    borderColor: 'red',
   },
 });
