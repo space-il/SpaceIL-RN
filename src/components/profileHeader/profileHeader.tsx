@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import UserAvatar from 'react-native-user-avatar';
+import {COLORS} from "../../constants/Colors";
 
 interface Props {
   profileName: string;
@@ -19,7 +20,7 @@ const ProfileHeader = ({ profileName, memberSince, image }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
-        <UserAvatar size={88} name={profileName} bgColor={'#ccc'} src={image} />
+        <UserAvatar size={88} name={profileName} bgColor={COLORS.LIGHT_GREY} src={image} />
       </View>
 
       <View style={styles.textContainer}>
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row-reverse',
     maxHeight: 136,
-    backgroundColor: '#141622',
+    backgroundColor: COLORS.BLACK,
     padding: 22,
   },
   avatarContainer: {
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   profileName: {
-    color: '#ffff',
+    color: COLORS.WHITE,
     fontSize: 24,
     fontFamily: 'Abraham',
     lineHeight: 32,
