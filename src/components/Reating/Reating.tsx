@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../../constants/Colors';
-import { Star } from './Star';
 import Logo from '../../constants/starIcon.svg';
 
 export const Reating = () => {
