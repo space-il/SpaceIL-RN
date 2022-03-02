@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
@@ -8,6 +8,7 @@ import SearchPreferences from './Profile/tabs/SearchPreferences';
 import HomeDetails from './Profile/tabs/HomeDetails';
 import ProfileHeader from '../../components/profileHeader/profileHeader';
 
+import { Reating } from '../../components/Reating/Reating';
 type ProfileScreenNavigationProp = BottomTabNavigationProp<
   TabNavParamList,
   'Profile'
