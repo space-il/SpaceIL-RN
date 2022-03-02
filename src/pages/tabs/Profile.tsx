@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { TabNavParamList } from '../Main';
 import { COLORS } from '../../constants/Colors';
-
+import { Reating } from '../../components/Reating/Reating';
 type ProfileScreenNavigationProp = BottomTabNavigationProp<
   TabNavParamList,
   'Profile'
@@ -19,6 +19,7 @@ const Profile = ({ navigation }: Props) => {
       <Pressable onPress={() => navigation.navigate('Popup', {})}>
         <Text>Popup</Text>
       </Pressable>
+      <Reating></Reating>
     </View>
   );
 };
