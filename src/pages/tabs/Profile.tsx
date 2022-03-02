@@ -26,7 +26,6 @@ const Profile = ({ navigation }: Props) => {
       <ProfileHeader profileName={'אנה בלום'} memberSince={'1994'} />
 
       <ProfileNavigationBar navigation={navigation} />
-      <Reating></Reating>
     </View>
   );
 };
