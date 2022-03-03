@@ -8,6 +8,8 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   GRAY: '#E3E5EC',
   BLACK: '#141622',
+  // Formal Colors:
+  DEEP_BLUE: '#0074bb',
 };
 
 export const HEADER_GRADIENT_COLORS = [

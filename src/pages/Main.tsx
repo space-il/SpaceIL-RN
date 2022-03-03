@@ -16,6 +16,7 @@ export type TabNavParamList = {
   Profile: {};
   Search: {};
   MyLectures: {};
+  Popup: {};
 };
 
 const BottomTabNav = createBottomTabNavigator<TabNavParamList>();
