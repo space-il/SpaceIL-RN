@@ -9,3 +9,9 @@ export const COLORS = {
   GRAY: '#E3E5EC',
   BLACK: '#141622',
 };
+
+export const HEADER_GRADIENT_COLORS = [
+  '#141622',
+  '#0074BC',
+  '#141622',
+];

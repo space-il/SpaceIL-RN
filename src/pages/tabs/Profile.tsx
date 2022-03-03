@@ -22,8 +22,7 @@ const Tab = createMaterialTopTabNavigator();
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <ProfileHeader profileName={'אנה בלום'} memberSince={'1994'} />
-
+      <ProfileHeader profileName={'אנה בלום'} memberSince={1994} />
       <ProfileNavigationBar navigation={navigation} />
     </View>
   );
