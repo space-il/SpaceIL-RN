@@ -1,25 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList } from '../Main';
-import { COLORS } from '../../constants/Colors';
-import FiltersBubbles from '../../components/filtersBubbles/FiltersBubbles';
-import { filtersDataMock } from '../../components/filtersBubbles/FiltersData.mock';
+import { COLORS } from '@constants/Colors';
+import FiltersBubbles from '@components/filtersBubbles/FiltersBubbles';
+import { filtersDataMock } from '@components/filtersBubbles/FiltersData.mock';
+import { LecturesList } from './components/LecturesList';
+import { LectureItemIface } from './types';
+import { TabNavParamList } from '../../Main';
 
-type MyLecturesScreenNavigationProp = BottomTabNavigationProp<
-  TabNavParamList,
-  'MyLectures'
->;
+type MyLecturesScreenNavigationProp = BottomTabNavigationProp<TabNavParamList>;
 
 interface Props {
   navigation: MyLecturesScreenNavigationProp;
 }
 
-const MyLectures = ({ navigation }: Props) => {
+const lecturesDummyData: LectureItemIface[] = [{ id: 'lc-1', title: 'הרצאה 1' }];
+
+export const MyLectures = ({}: Props) => {
   return (
     <View style={styles.container}>
       <FiltersBubbles data={filtersDataMock} />
-      <Text>MY LECTURES</Text>
+      <LecturesList lectures={lecturesDummyData} />
     </View>
   );
 };
@@ -27,11 +28,6 @@ const MyLectures = ({ navigation }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: 'stretch',
     backgroundColor: COLORS.LIGHT_ORANGE,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
-
-export default MyLectures;

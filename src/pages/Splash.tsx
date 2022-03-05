@@ -5,10 +5,7 @@ import { SPLASH_DELAY_MS } from '../constants/Constants';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 
-type SplashScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Splash'
->;
+type SplashScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Splash'>;
 
 interface Props {
   navigation: SplashScreenNavigationProp;
@@ -17,7 +14,7 @@ interface Props {
 const Splash = ({ navigation }: Props) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Main', {});
+      navigation.navigate('Main');
     }, SPLASH_DELAY_MS);
   }, [navigation]);
 

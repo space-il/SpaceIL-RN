@@ -1,16 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList } from '../Main';
-import { COLORS } from '../../constants/Colors';
+import { TabNavParamList, TabScreensNames } from '../Main';
+import { COLORS } from '@constants/Colors';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SearchPreferences from './Profile/tabs/SearchPreferences';
 import HomeDetails from './Profile/tabs/HomeDetails';
 
-type ProfileScreenNavigationProp = BottomTabNavigationProp<
-  TabNavParamList,
-  'Profile'
->;
+type ProfileScreenNavigationProp = BottomTabNavigationProp<TabNavParamList, TabScreensNames.PROFILE>;
 
 interface Props {
   navigation: ProfileScreenNavigationProp;
@@ -42,16 +39,8 @@ const ProfileNavigationBar = ({ navigation }: Props) => {
         tabBarInactiveTintColor: COLORS.GRAY,
       }}
       initialRouteName={'פרטי מגורים'}>
-      <Tab.Screen
-        name="העדפות חיפוש"
-        component={SearchPreferences}
-        initialParams={navigation}
-      />
-      <Tab.Screen
-        name="פרטי מגורים"
-        component={HomeDetails}
-        initialParams={navigation}
-      />
+      <Tab.Screen name="העדפות חיפוש" component={SearchPreferences} initialParams={navigation} />
+      <Tab.Screen name="פרטי מגורים" component={HomeDetails} initialParams={navigation} />
     </Tab.Navigator>
   );
 };
