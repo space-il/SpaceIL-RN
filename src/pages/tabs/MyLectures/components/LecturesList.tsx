@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { LectureItem } from './LectureItem';
+import { TabScreensNames } from '@pages/tabs/Main/types';
 import { LectureItemIface, LecturePanelItem } from '../types';
 import { LecturePanelSheet } from './LecturesActionSheets/LecturePanelSheet';
-import { TabScreensNames } from '@pages/Main';
 
 const panelItems: LecturePanelItem[] = [
   { id: '0', screenToNavigate: TabScreensNames.PROFILE, text: 'פרטי הרצאה' },

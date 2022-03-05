@@ -6,7 +6,8 @@ import { Text, StyleSheet, FlatList, View } from 'react-native';
 import { LecturePanelItem, LectureSheet } from '../../types';
 import { COLORS } from '@constants/Colors';
 import { NativeStackNavigationProp } from 'react-native-screens/native-stack';
-import { TabNavParamList, TabScreensNames } from '@pages/Main';
+import { TabNavParamList } from '@pages/tabs/Main';
+import { TabScreensNames } from '@pages/tabs/Main/types';
 
 interface Props {
   lectureId: string;

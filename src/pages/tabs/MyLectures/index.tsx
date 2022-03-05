@@ -6,7 +6,7 @@ import FiltersBubbles from '@components/filtersBubbles/FiltersBubbles';
 import { filtersDataMock } from '@components/filtersBubbles/FiltersData.mock';
 import { LecturesList } from './components/LecturesList';
 import { LectureItemIface } from './types';
-import { TabNavParamList } from '../../Main';
+import { TabNavParamList } from '../Main';
 
 type MyLecturesScreenNavigationProp = BottomTabNavigationProp<TabNavParamList>;
 

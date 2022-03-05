@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList, TabScreensNames } from '../Main';
+import { TabNavParamList } from './Main';
+import { TabScreensNames } from '@pages/tabs/Main/types';
 import { COLORS } from '@constants/Colors';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SearchPreferences from './Profile/tabs/SearchPreferences';
 import HomeDetails from './Profile/tabs/HomeDetails';
+import ProfileHeader from '../../components/profileHeader/profileHeader';
 
 type ProfileScreenNavigationProp = BottomTabNavigationProp<TabNavParamList, TabScreensNames.PROFILE>;
 
@@ -18,9 +20,7 @@ const Tab = createMaterialTopTabNavigator();
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.profileHeaderStyle}>
-        <Text>PROFILE HEADER (AVATAR, NAME)</Text>
-      </View>
+      <ProfileHeader profileName={'אנה בלום'} memberSince={'1994'} />
 
       <ProfileNavigationBar navigation={navigation} />
     </View>

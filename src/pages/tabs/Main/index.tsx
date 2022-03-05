@@ -1,9 +1,10 @@
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../App';
-import Profile from './tabs/Profile';
-import Search from './tabs/Search';
-import { MyLectures } from './tabs/MyLectures';
+import { RootStackParamList } from '../../../App';
+import { TabScreensNames } from '@pages/tabs/Main/types';
+import Profile from '../Profile';
+import Search from '../Search';
+import { MyLectures } from '../MyLectures';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Main'>;
@@ -12,21 +13,16 @@ interface Props {
   navigation: MainScreenNavigationProp;
 }
 
-export enum TabScreensNames {
-  PROFILE = 'Profile',
-  SEARCH = 'Search',
-  MY_LECTURES = 'MyLectures',
-}
-
 export type TabNavParamList = {
   [TabScreensNames.PROFILE]: {} | undefined;
   [TabScreensNames.SEARCH]: undefined;
   [TabScreensNames.MY_LECTURES]: undefined;
+  [TabScreensNames.POPUP]: undefined;
 };
 
 const BottomTabNav = createBottomTabNavigator<TabNavParamList>();
 
-const Main = ({ navigation }: Props) => {
+export const Main = ({ navigation }: Props) => {
   return (
     <BottomTabNav.Navigator>
       <BottomTabNav.Screen name={TabScreensNames.PROFILE} component={Profile} initialParams={navigation} />
@@ -35,5 +31,3 @@ const Main = ({ navigation }: Props) => {
     </BottomTabNav.Navigator>
   );
 };
-
-export default Main;

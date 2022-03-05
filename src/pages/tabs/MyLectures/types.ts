@@ -1,4 +1,4 @@
-import { TabScreensNames } from '@pages/Main';
+import { TabScreensNames } from '@pages/tabs/Main/types';
 
 export enum LectureSheet {
   PANEL = 'lecture_panel_sheet',

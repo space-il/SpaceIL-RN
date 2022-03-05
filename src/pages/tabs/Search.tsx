@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList, TabScreensNames } from '../Main';
+import { TabScreensNames } from '@pages/tabs/Main/types';
+import { TabNavParamList } from './Main';
 import { COLORS } from '@constants/Colors';
 import { hidePopup, showPopup } from '@components/popup/popupSlice';
 import { useAppDispatch, useAppSelector } from '../../app/Hooks';
