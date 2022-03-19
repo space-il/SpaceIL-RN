@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export const SignIn = () => {
+export const ForgotPass = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text>ForgotPass screen</Text>
     </View>
   );
 };
@@ -12,9 +12,7 @@ export const SignIn = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-  },
-  title: {
-    color: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

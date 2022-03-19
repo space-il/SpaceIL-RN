@@ -6,12 +6,17 @@ import Splash from '@pages/Splash';
 import Popup from '@components/popup/Popup';
 import { Main } from '@pages/tabs/Main';
 import { SignIn } from '@pages/Auth/SignIn';
+import { SignUp } from '@pages/Auth/SignUp';
+import { ForgotPass } from '@pages/Auth/ForgotPass';
+import { StackScreensNames } from '@pages/types';
 
 export type RootStackParamList = {
-  Splash: undefined;
-  Main: undefined;
-  Popup: undefined;
-  SignIn: undefined;
+  [StackScreensNames.SPLASH]: undefined;
+  [StackScreensNames.MAIN]: undefined;
+  [StackScreensNames.POPUP]: undefined;
+  [StackScreensNames.SIGN_IN]: undefined;
+  [StackScreensNames.SIGN_UP]: undefined;
+  [StackScreensNames.FORGOT_PASS]: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -24,21 +29,23 @@ export const AppNavigator = () => {
       {isAuthenticated ? (
         <>
           <RootStack.Group>
-            <RootStack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
-            <RootStack.Screen name="Main" component={Main} options={{ headerShown: false }} />
+            <RootStack.Screen name={StackScreensNames.SPLASH} component={Splash} options={{ headerShown: false }} />
+            <RootStack.Screen name={StackScreensNames.MAIN} component={Main} options={{ headerShown: false }} />
           </RootStack.Group>
           <RootStack.Group
             screenOptions={{
               presentation: 'transparentModal',
               headerShown: false,
             }}>
-            <RootStack.Screen name="Popup" component={Popup} />
+            <RootStack.Screen name={StackScreensNames.POPUP} component={Popup} />
           </RootStack.Group>
         </>
       ) : (
-        <>
-          <RootStack.Screen name="SignIn" component={SignIn} />
-        </>
+        <RootStack.Group screenOptions={{ headerShown: false }}>
+          <RootStack.Screen name={StackScreensNames.SIGN_IN} component={SignIn} />
+          <RootStack.Screen name={StackScreensNames.SIGN_UP} component={SignUp} />
+          <RootStack.Screen name={StackScreensNames.FORGOT_PASS} component={ForgotPass} />
+        </RootStack.Group>
       )}
     </RootStack.Navigator>
   );

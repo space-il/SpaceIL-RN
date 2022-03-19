@@ -1,3 +1,5 @@
+import { DefaultTheme } from '@react-navigation/native';
+
 export const COLORS = {
   BG_DEFAULT_TEMP: '#dad',
   LIGHT_GREY: '#bbb',
@@ -10,4 +12,13 @@ export const COLORS = {
   BLACK: '#141622',
   // Formal Colors:
   DEEP_BLUE: '#0074bb',
+  INPUT_GREY: '#686E74',
+};
+
+export const navTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'transparent',
+  },
 };

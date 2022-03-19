@@ -1,13 +1,14 @@
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from '../../../AppNavigator';
 import { TabScreensNames } from '@pages/tabs/Main/types';
+import { StackScreensNames } from '@pages/types';
 import Profile from '../Profile';
 import Search from '../Search';
 import { MyLectures } from '../MyLectures';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Main'>;
+export type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, StackScreensNames.MAIN>;
 
 interface Props {
   navigation: MainScreenNavigationProp;

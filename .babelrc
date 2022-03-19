@@ -10,7 +10,8 @@
           "@constants": "./src/constants",
           "@components": "./src/components",
           "@pages": "./src/pages",
-          "@app": "./src/app"
+          "@app": "./src/app",
+          "@assets": "./src/assets"
         }
       }
     ]

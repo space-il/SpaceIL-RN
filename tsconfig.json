@@ -42,7 +42,8 @@
        "@constants/*": ["./src/constants/*"],
        "@components/*": ["./src/components/*"],
        "@pages/*": ["./src/pages/*"],
-       "@app/*": ["./src/app/*"]
+       "@app/*": ["./src/app/*"],
+       "@assets/*": ["./src/assets/*"]
      },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
@@ -51,7 +52,7 @@
     "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
-    "resolveJsonModule": true                 /* Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. */
+    "resolveJsonModule": true                 /* Allows importing modules with a ‘.json’ extension, which is a utils practice in node projects. */
 
     /* Source Map Options */
     // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */

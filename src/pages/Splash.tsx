@@ -4,8 +4,9 @@ import { COLORS } from '@constants/Colors';
 import { SPLASH_DELAY_MS } from '@constants/Constants';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../AppNavigator';
+import { StackScreensNames } from '@pages/types';
 
-type SplashScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Splash'>;
+type SplashScreenNavigationProp = StackNavigationProp<RootStackParamList, StackScreensNames.SPLASH>;
 
 interface Props {
   navigation: SplashScreenNavigationProp;
@@ -14,7 +15,7 @@ interface Props {
 const Splash = ({ navigation }: Props) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Main');
+      navigation.navigate(StackScreensNames.MAIN);
     }, SPLASH_DELAY_MS);
   }, [navigation]);
 
