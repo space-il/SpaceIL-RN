@@ -9,7 +9,8 @@
         "alias": {
           "@constants": "./src/constants",
           "@components": "./src/components",
-          "@pages": "./src/pages"
+          "@pages": "./src/pages",
+          "@app": "./src/app"
         }
       }
     ]

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../App';
+import { RootStackParamList } from '../../../AppNavigator';
 import { TabScreensNames } from '@pages/tabs/Main/types';
 import Profile from '../Profile';
 import Search from '../Search';
