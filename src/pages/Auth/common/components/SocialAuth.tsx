@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 
-export const SocialLogin = () => {
+interface Props {
+  customContainerStyle?: ViewStyle;
+}
+
+export const SocialAuth = ({ customContainerStyle = {} }: Props) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customContainerStyle]}>
       <Text style={styles.facebook}>F</Text>
       <Text style={styles.google}>G</Text>
     </View>
@@ -12,10 +16,8 @@ export const SocialLogin = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 50,
   },
   facebook: {
     backgroundColor: 'lightgrey',

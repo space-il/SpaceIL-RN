@@ -8,7 +8,7 @@ interface Props {
   customAccessibilityProps?: AccessibilityProps;
 }
 
-export const BasicText = ({ text, isRTL = true, customTextStyle, customAccessibilityProps = {} }: Props) => {
+export const BaseText = ({ text, isRTL = true, customTextStyle, customAccessibilityProps = {} }: Props) => {
   const rtlStyle: TextStyle = isRTL ? { textAlign: 'right' } : {};
 
   return (

@@ -9,6 +9,7 @@ import { SignIn } from '@pages/Auth/SignIn';
 import { SignUp } from '@pages/Auth/SignUp';
 import { ForgotPass } from '@pages/Auth/ForgotPass';
 import { StackScreensNames } from '@pages/types';
+import { AuthNavHeader } from '@pages/Auth/common/components/AuthNavHeader';
 
 export type RootStackParamList = {
   [StackScreensNames.SPLASH]: undefined;
@@ -41,8 +42,13 @@ export const AppNavigator = () => {
           </RootStack.Group>
         </>
       ) : (
-        <RootStack.Group screenOptions={{ headerShown: false }}>
-          <RootStack.Screen name={StackScreensNames.SIGN_IN} component={SignIn} />
+        <RootStack.Group
+          screenOptions={{
+            header: () => <AuthNavHeader prevScreenName="כניסה לחשבון" />,
+          }}>
+          <RootStack.Group screenOptions={{ headerShown: false }}>
+            <RootStack.Screen name={StackScreensNames.SIGN_IN} component={SignIn} />
+          </RootStack.Group>
           <RootStack.Screen name={StackScreensNames.SIGN_UP} component={SignUp} />
           <RootStack.Screen name={StackScreensNames.FORGOT_PASS} component={ForgotPass} />
         </RootStack.Group>

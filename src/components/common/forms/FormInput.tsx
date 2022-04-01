@@ -8,6 +8,7 @@ interface Props {
   placeholder: string;
   title?: string;
   isRTL?: boolean;
+  secureTextEntry?: boolean;
   rules?: Record<string, any>;
   customTitleStyle?: TextStyle;
   customInputStyle?: TextStyle;
@@ -15,7 +16,7 @@ interface Props {
 }
 
 export const FormInput = (props: Props) => {
-  const { name, placeholder, control, rules = {}, isRTL = true, title } = props;
+  const { name, placeholder, control, rules = {}, isRTL = true, title, secureTextEntry = false } = props;
   const { customTitleStyle, customInputStyle, customErrorStyle } = props;
   const rtlStyle: TextStyle = isRTL ? { textAlign: isRTL ? 'right' : 'left' } : {};
 
@@ -37,6 +38,7 @@ export const FormInput = (props: Props) => {
             onBlur={onBlur}
             onChangeText={onChange}
             placeholder={placeholder}
+            secureTextEntry={secureTextEntry}
             style={[styles.input, rtlStyle, { borderColor: error ? 'red' : 'lightgray' }, customInputStyle]}
           />
           {error && (

@@ -5,7 +5,7 @@ import { COLORS } from '@constants/Colors';
 export const LanguagePicker = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>עברית</Text>
+      <Text style={styles.screenLabel}>עברית</Text>
       <Image style={styles.flagImg} source={require('@assets/png/israelFlag.png')} />
     </View>
   );
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  title: {
+  screenLabel: {
     color: COLORS.DEEP_BLUE,
     paddingRight: 10,
     fontSize: 16,
