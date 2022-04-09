@@ -7,6 +7,7 @@ export const store = configureStore({
     popup: popupSlice.reducer,
     auth: authSlice.reducer,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

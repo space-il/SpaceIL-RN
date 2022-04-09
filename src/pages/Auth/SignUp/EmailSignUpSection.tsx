@@ -6,14 +6,20 @@ import { FormInput } from '@components/common/forms/FormInput';
 import { Button } from '@components/common/buttons/Button';
 import { COLORS } from '@constants/Colors';
 import { SIGN_UP } from '@pages/Auth/SignUp/consts';
+import { EmailSignUpObj } from '@pages/Auth/types';
+import { authManager } from '@services/auth/auth.api';
+import { useAppDispatch } from '@app/storeUtils';
+import { setSignUpAuthInfo } from '../authSlice';
+import { AuthState } from '@services/auth/types';
 
 export const EmailSignUpSection = () => {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm<EmailSignUpObj>();
+  const dispatch = useAppDispatch();
 
-  const onHandleSubmit = (something: any) => {
-    // signup
-    console.log('#### something', something);
-  };
+  const onHandleSubmit = handleSubmit(async (submitObj: EmailSignUpObj): Promise<void> => {
+    const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password);
+    authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setSignUpAuthInfo(authRes.res));
+  });
 
   return (
     <>
@@ -37,7 +43,7 @@ export const EmailSignUpSection = () => {
         rules={{ required: `${SIGN_UP.LAST_NAME_TITLE} ${SIGN_UP.INPUT_ERROR_TEXT}` }}
       />
       <FormInput
-        name="username"
+        name="email"
         control={control}
         title={SIGN_UP.USERNAME_TITLE}
         customInputStyle={styles.inputContainer}
@@ -55,11 +61,7 @@ export const EmailSignUpSection = () => {
         customTitleStyle={styles.passwordInputTitle}
         rules={{ required: `${SIGN_UP.PASSWORD_TITLE} ${SIGN_UP.INPUT_ERROR_TEXT}` }}
       />
-      <Button
-        btnLabel={SIGN_UP.BUTTON}
-        onPress={handleSubmit(onHandleSubmit)}
-        customBtnContainerStyle={styles.btnContainer}
-      />
+      <Button btnLabel={SIGN_UP.BUTTON} onPress={onHandleSubmit} customBtnContainerStyle={styles.btnContainer} />
     </>
   );
 };

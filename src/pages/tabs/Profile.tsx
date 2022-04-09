@@ -21,7 +21,6 @@ const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <ProfileHeader profileName={'אנה בלום'} memberSince={'1994'} />
-
       <ProfileNavigationBar navigation={navigation} />
     </View>
   );
@@ -48,7 +47,6 @@ const ProfileNavigationBar = ({ navigation }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: 'stretch',
     backgroundColor: COLORS.LIGHT_BLUE,
     justifyContent: 'center',
   },

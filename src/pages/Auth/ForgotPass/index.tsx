@@ -13,7 +13,8 @@ export const ForgotPass = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 30,
-    marginHorizontal: 40,
+    backgroundColor: 'white',
+    paddingVertical: 30,
+    paddingHorizontal: 40,
   },
 });

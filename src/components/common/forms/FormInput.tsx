@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Text, StyleSheet, TextInput, TextStyle } from 'react-native';
 import { Control, Controller } from 'react-hook-form';
 
 interface Props {
   name: string;
-  control: Control;
+  control: Control<any>; // TODO(Avshalom): figure out TS generics with props
   placeholder: string;
   title?: string;
   isRTL?: boolean;
@@ -15,7 +15,7 @@ interface Props {
   customErrorStyle?: TextStyle;
 }
 
-export const FormInput = (props: Props) => {
+export const FormInput = (props: Props): ReactElement => {
   const { name, placeholder, control, rules = {}, isRTL = true, title, secureTextEntry = false } = props;
   const { customTitleStyle, customInputStyle, customErrorStyle } = props;
   const rtlStyle: TextStyle = isRTL ? { textAlign: isRTL ? 'right' : 'left' } : {};

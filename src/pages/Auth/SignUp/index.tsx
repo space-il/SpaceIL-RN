@@ -18,8 +18,9 @@ export const SignUp = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 30,
-    marginHorizontal: 40,
+    backgroundColor: 'white',
+    paddingVertical: 30,
+    paddingHorizontal: 40,
   },
   socialLogin: {
     marginTop: 25,

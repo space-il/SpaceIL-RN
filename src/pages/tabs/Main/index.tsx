@@ -25,7 +25,7 @@ const BottomTabNav = createBottomTabNavigator<TabNavParamList>();
 
 export const Main = ({ navigation }: Props) => {
   return (
-    <BottomTabNav.Navigator>
+    <BottomTabNav.Navigator screenOptions={{ headerShown: false }}>
       <BottomTabNav.Screen name={TabScreensNames.PROFILE} component={Profile} initialParams={navigation} />
       <BottomTabNav.Screen name={TabScreensNames.SEARCH} component={Search} />
       <BottomTabNav.Screen name={TabScreensNames.MY_LECTURES} component={MyLectures} />

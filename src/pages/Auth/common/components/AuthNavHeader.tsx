@@ -21,11 +21,12 @@ export const AuthNavHeader = ({ prevScreenName }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
+    paddingTop: 10,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginRight: 25,
+    paddingRight: 25,
+    backgroundColor: 'white',
   },
   backArrow: {
     color: COLORS.BLUE,

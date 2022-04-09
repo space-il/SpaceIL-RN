@@ -29,9 +29,9 @@ export const AppNavigator = () => {
     <RootStack.Navigator>
       {isAuthenticated ? (
         <>
-          <RootStack.Group>
-            <RootStack.Screen name={StackScreensNames.SPLASH} component={Splash} options={{ headerShown: false }} />
-            <RootStack.Screen name={StackScreensNames.MAIN} component={Main} options={{ headerShown: false }} />
+          <RootStack.Group screenOptions={{ headerShown: false }}>
+            <RootStack.Screen name={StackScreensNames.SPLASH} component={Splash} />
+            <RootStack.Screen name={StackScreensNames.MAIN} component={Main} />
           </RootStack.Group>
           <RootStack.Group
             screenOptions={{

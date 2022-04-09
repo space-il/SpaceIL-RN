@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import UserAvatar from 'react-native-user-avatar';
 import { COLORS } from '@constants/Colors';
+import { LogoutBtn } from '@components/profileHeader/LogoutBtn';
 
 interface Props {
   profileName: string;
@@ -22,11 +23,11 @@ const ProfileHeader = ({ profileName, memberSince, image }: Props) => {
       <View style={styles.avatarContainer}>
         <UserAvatar size={88} name={profileName} bgColor={COLORS.LIGHT_GREY} src={image} />
       </View>
-
       <View style={styles.textContainer}>
         <Text style={styles.profileName}>{profileName}</Text>
         {sinceDropDown(memberSince)}
       </View>
+      <LogoutBtn btnLabel={'התנתק'} />
     </View>
   );
 };
