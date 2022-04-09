@@ -9,3 +9,7 @@ export interface EmailSignUpObj {
   email: string;
   password: string;
 }
+
+export interface ResetPasswordObj {
+  email: string;
+}

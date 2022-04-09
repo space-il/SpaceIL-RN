@@ -16,10 +16,10 @@ export const EmailSignUpSection = () => {
   const { control, handleSubmit } = useForm<EmailSignUpObj>();
   const dispatch = useAppDispatch();
 
-  const onHandleSubmit = handleSubmit(async (submitObj: EmailSignUpObj): Promise<void> => {
+  const onHandleSubmit = async (submitObj: EmailSignUpObj): Promise<void> => {
     const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password);
     authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setSignUpAuthInfo(authRes.res));
-  });
+  };
 
   return (
     <>
@@ -61,7 +61,11 @@ export const EmailSignUpSection = () => {
         customTitleStyle={styles.passwordInputTitle}
         rules={{ required: `${SIGN_UP.PASSWORD_TITLE} ${SIGN_UP.INPUT_ERROR_TEXT}` }}
       />
-      <Button btnLabel={SIGN_UP.BUTTON} onPress={onHandleSubmit} customBtnContainerStyle={styles.btnContainer} />
+      <Button
+        btnLabel={SIGN_UP.BUTTON}
+        onPress={handleSubmit(onHandleSubmit)}
+        customBtnContainerStyle={styles.btnContainer}
+      />
     </>
   );
 };

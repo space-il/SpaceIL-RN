@@ -49,8 +49,19 @@ const signOut = async (): Promise<AuthState> => {
   }
 };
 
+const resetPassword = async (email: string): Promise<AuthState> => {
+  try {
+    await auth().sendPasswordResetEmail(email);
+
+    return AuthState.RESET_PASSWORD_SUCCESS;
+  } catch (error) {
+    return AuthState.RESET_PASSWORD_ERROR;
+  }
+};
+
 export const authManager = {
+  signOut,
   emailSignUp,
   emailSignIn,
-  signOut,
+  resetPassword,
 };
