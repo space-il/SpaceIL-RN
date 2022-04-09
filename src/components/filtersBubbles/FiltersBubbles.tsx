@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { COLORS } from '../../constants/Colors';
+import { COLORS } from '@constants/Colors';
 import React, { useState } from 'react';
 
 interface BubbleProp {
@@ -15,9 +15,7 @@ const Bubble = ({ bubbleText, filterAction }: BubbleProp) => {
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   const getColor = (isSelectedMode: boolean) =>
-    isSelectedMode
-      ? { backgroundColor: COLORS.BLUE }
-      : { backgroundColor: COLORS.GRAY };
+    isSelectedMode ? { backgroundColor: COLORS.BLUE } : { backgroundColor: COLORS.GRAY };
 
   const getTextColor = (isSelectedMode: boolean) =>
     isSelectedMode ? { color: COLORS.WHITE } : { color: COLORS.BLACK };
@@ -28,9 +26,7 @@ const Bubble = ({ bubbleText, filterAction }: BubbleProp) => {
   };
 
   return (
-    <TouchableOpacity
-      style={[styles.bubble, getColor(isSelected)]}
-      onPress={onPress}>
+    <TouchableOpacity style={[styles.bubble, getColor(isSelected)]} onPress={onPress}>
       <Text style={getTextColor(isSelected)} numberOfLines={1}>
         {bubbleText}
       </Text>
@@ -42,11 +38,7 @@ const FiltersBubbles = ({ data }: Props) => {
   return (
     <View style={styles.container}>
       {data.map((bubble, index) => (
-        <Bubble
-          key={index}
-          bubbleText={bubble.bubbleText}
-          filterAction={bubble.filterAction}
-        />
+        <Bubble key={index} bubbleText={bubble.bubbleText} filterAction={bubble.filterAction} />
       ))}
     </View>
   );
@@ -55,7 +47,6 @@ const FiltersBubbles = ({ data }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    flex: 1,
     alignSelf: 'flex-end',
   },
   bubble: {
@@ -67,7 +58,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
   bubbleText: {
-    fontFamily: 'Abraham',
+    // fontFamily: 'Abraham',
   },
 });
 

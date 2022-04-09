@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react';
-import { Modal, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { PopupButton, PopupButtonType } from './PopupButton';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constants/Constants';
-import { useAppSelector } from '../../app/Hooks';
 
 interface Props {
   content?: ReactElement;

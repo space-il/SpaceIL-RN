@@ -1,21 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { TabNavParamList } from '../Main';
-import { COLORS } from '../../constants/Colors';
-import { hidePopup, showPopup } from '../../components/popup/popupSlice';
-import { useAppDispatch, useAppSelector } from '../../app/Hooks';
+import { TabScreensNames } from '@pages/tabs/Main/types';
+import { TabNavParamList } from './Main';
+import { COLORS } from '@constants/Colors';
+import { hidePopup, showPopup } from '@components/popup/popupSlice';
+import { useAppDispatch, useAppSelector } from '@app/storeUtils';
 
-type SearchScreenNavigationProp = BottomTabNavigationProp<
-  TabNavParamList,
-  'Search'
->;
+type SearchScreenNavigationProp = BottomTabNavigationProp<TabNavParamList, TabScreensNames.SEARCH>;
 
 interface Props {
   navigation: SearchScreenNavigationProp;
 }
 
-const Search = ({ navigation }: Props) => {
+const Search = ({}: Props) => {
   const isPopupVisible = useAppSelector(state => state.popup.isVisible);
   const dispatch = useAppDispatch();
 
