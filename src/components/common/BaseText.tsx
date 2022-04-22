@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, TextStyle, AccessibilityProps } from 'react-native';
+import { COLORS } from '@constants/Colors';
 
 interface Props {
   text: string;
@@ -20,6 +21,6 @@ export const BaseText = ({ text, isRTL = true, customTextStyle, customAccessibil
 
 const styles = StyleSheet.create({
   text: {
-    color: 'black',
+    color: COLORS.BLACK,
   },
 });

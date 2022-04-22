@@ -26,13 +26,13 @@ export const AlternativeLoginSection = () => {
       <Button
         onPress={onForgotPassPress}
         btnLabel={SIGN_IN.FORGOT_PASS_LABEL}
-        customBtnTitleStyle={styles.forgotBtnLabel}
+        customBtnLabelStyle={styles.forgotBtnLabel}
         customBtnContainerStyle={styles.forgotBtnContainer}
       />
       <Button
         onPress={onSignUpPress}
         btnLabel={SIGN_IN.SIGN_UP_LABEL}
-        customBtnTitleStyle={styles.signupBtnLabel}
+        customBtnLabelStyle={styles.signupBtnLabel}
         customBtnContainerStyle={styles.signupBtnContainer}
       />
     </View>
