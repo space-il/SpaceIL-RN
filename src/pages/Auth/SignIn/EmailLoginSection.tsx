@@ -1,24 +1,31 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
-import { BasicText } from '@components/common/BasicText';
+import { BaseText } from '@components/common/BaseText';
 import { SIGN_IN } from '@pages/Auth/SignIn/consts';
 import { FormInput } from '@components/common/forms/FormInput';
 import { Button } from '@components/common/buttons/Button';
 import { COLORS } from '@constants/Colors';
+import { authManager } from '@services/auth/auth.api';
+import { EmailSignInObj } from '@pages/Auth/types';
+import { AuthState } from '@services/auth/types';
+import { setSignInAuthInfo } from '@pages/Auth/authSlice';
+import { useAppDispatch } from '@app/storeUtils';
 
 export const EmailLoginSection = () => {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm<EmailSignInObj>();
+  const dispatch = useAppDispatch();
 
-  const onHandleSubmit = (something: any) => {
-    console.log('#### something', something);
+  const onHandleSubmit = async (submitObj: EmailSignInObj): Promise<void> => {
+    const authRes = await authManager.emailSignIn(submitObj.email, submitObj.password);
+    authRes.authState === AuthState.EMAIL_SIGNIN_SUCCESS && dispatch(setSignInAuthInfo(authRes.res));
   };
 
   return (
     <>
-      <BasicText text={SIGN_IN.TITLE} customTextStyle={styles.title} />
+      <BaseText text={SIGN_IN.TITLE} customTextStyle={styles.title} />
       <FormInput
-        name="username"
+        name="email"
         control={control}
         title={SIGN_IN.USERNAME_TITLE}
         customInputStyle={styles.usernameInput}
@@ -29,6 +36,7 @@ export const EmailLoginSection = () => {
       <FormInput
         name="password"
         control={control}
+        secureTextEntry={true}
         title={SIGN_IN.PASSWORD_TITLE}
         customInputStyle={styles.passwordInput}
         placeholder={SIGN_IN.PASSWORD_PLACEHOLDER}

@@ -15,7 +15,7 @@ export const COLORS = {
   INPUT_GREY: '#686E74',
 };
 
-export const navTheme = {
+export const appTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,

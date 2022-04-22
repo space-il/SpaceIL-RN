@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1036664461455",
+    "firebase_url": "https://spaceil-portal-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "spaceil-portal",
+    "storage_bucket": "spaceil-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036664461455:android:b3d99c8adc99c05641f8fa",
+        "android_client_info": {
+          "package_name": "com.spaceil_rn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036664461455-ovvekaoctjilmp9q10e4ilt1v3it0vj4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spaceil_rn",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1036664461455-9dv8upresig3242p4ocivdbce7pnhvpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8TCM3yXLQiBtf49-MwZDMUeS85Cq0NiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036664461455-9dv8upresig3242p4ocivdbce7pnhvpp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1036664461455-7uel2lo16qivbc0uargdubmhrf1gvs92.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.att.spaceIL"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

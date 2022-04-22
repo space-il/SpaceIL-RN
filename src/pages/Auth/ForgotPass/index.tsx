@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { EmailPasswordUpdateSection } from '@pages/Auth/ForgotPass/EmailPasswordUpdateSection';
 
 export const ForgotPass = () => {
   return (
     <View style={styles.container}>
-      <Text>ForgotPass screen</Text>
+      <EmailPasswordUpdateSection />
     </View>
   );
 };
@@ -12,7 +13,8 @@ export const ForgotPass = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingVertical: 30,
+    paddingHorizontal: 40,
   },
 });

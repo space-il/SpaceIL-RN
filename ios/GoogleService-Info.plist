@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1036664461455-735l4oap55pqdfmttl5j8rdlr21pc764.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1036664461455-735l4oap55pqdfmttl5j8rdlr21pc764</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1036664461455-840679a40f64fr2egvletat8hrqu642c.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC_BUrc6jFn0MYJG5HqJ9in-lXFink20wE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1036664461455</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.SpaceIL-RN</string>
+	<key>PROJECT_ID</key>
+	<string>spaceil-portal</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spaceil-portal.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1036664461455:ios:257302c2568a00f641f8fa</string>
+	<key>DATABASE_URL</key>
+	<string>https://spaceil-portal-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

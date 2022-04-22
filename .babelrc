@@ -11,7 +11,9 @@
           "@components": "./src/components",
           "@pages": "./src/pages",
           "@app": "./src/app",
-          "@assets": "./src/assets"
+          "@assets": "./src/assets",
+          "@services": "./src/services",
+          "@navigation": "./src/navigation"
         }
       }
     ]
