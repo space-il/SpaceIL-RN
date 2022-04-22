@@ -10,6 +10,11 @@ export interface EmailSignUpObj {
   password: string;
 }
 
+export interface EmailSignUpFirebaseObj {
+  displayName: string;
+  photoURL?: string;
+}
+
 export interface ResetPasswordObj {
   email: string;
 }

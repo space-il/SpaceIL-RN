@@ -1,5 +1,6 @@
 import auth from '@react-native-firebase/auth';
 import { AuthResult, AuthState } from './types';
+import { EmailSignUpFirebaseObj } from '@pages/Auth/types';
 
 // TODO(Avshalom): fix res type once types issues related to FirebaseAuthTypes will be resolved
 const buildAuthResultObj = (authState: AuthState, res: any): AuthResult => ({
@@ -7,11 +8,12 @@ const buildAuthResultObj = (authState: AuthState, res: any): AuthResult => ({
   res,
 });
 
-const emailSignUp = async (email: string, pass: string): Promise<AuthResult> => {
+const emailSignUp = async (email: string, pass: string, userInfo: EmailSignUpFirebaseObj): Promise<AuthResult> => {
   try {
     const authRes = await auth().createUserWithEmailAndPassword(email, pass);
+    await authRes.user.updateProfile(userInfo);
 
-    return buildAuthResultObj(AuthState.EMAIL_SIGNUP_SUCCESS, authRes);
+    return buildAuthResultObj(AuthState.EMAIL_SIGNUP_SUCCESS, auth().currentUser);
   } catch (error: any) {
     switch (error.code) {
       case AuthState.EMAIL_ALREADY_IN_USE:
