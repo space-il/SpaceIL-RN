@@ -61,9 +61,7 @@ export const Modal: FC<Props> = ({
 const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: COLORS.WHITE,
-    paddingHorizontal: 25,
-    paddingTop: 25,
-    paddingBottom: 15,
+    padding: 25,
     borderRadius: 12,
   },
   modalTitle: {
@@ -80,5 +78,6 @@ const styles = StyleSheet.create({
   },
   secondaryBtnContainer: {
     marginTop: 5,
+    marginBottom: -10,
   },
 });

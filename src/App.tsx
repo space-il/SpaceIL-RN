@@ -13,7 +13,7 @@ const App = () => {
       <SafeAreaView style={{ flex: 1 }}>
         <NavigationContainer theme={appTheme}>
           <AppNavigator />
-          <ErrorModal isVisible={false} />
+          <ErrorModal />
         </NavigationContainer>
       </SafeAreaView>
     </Provider>
