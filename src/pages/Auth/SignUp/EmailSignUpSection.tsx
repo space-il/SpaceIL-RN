@@ -17,7 +17,9 @@ export const EmailSignUpSection = () => {
   const dispatch = useAppDispatch();
 
   const onHandleSubmit = async (submitObj: EmailSignUpObj): Promise<void> => {
-    const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password);
+    const userInfo = { displayName: `${submitObj.firstName} ${submitObj.lastName}` };
+    const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password, userInfo);
+
     authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setSignUpAuthInfo(authRes.res));
   };
 
