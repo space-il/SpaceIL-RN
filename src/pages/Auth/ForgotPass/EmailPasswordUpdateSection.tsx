@@ -9,17 +9,17 @@ import { FORGOT_PASS } from '@pages/Auth/ForgotPass/consts';
 import { authManager } from '@services/auth/auth.api';
 import { ResetPasswordObj } from '@pages/Auth/types';
 import { useNavigation } from '@react-navigation/native';
-import { MainScreenNavigationProp } from '@pages/tabs/Main';
 import { AuthState } from '@services/auth/types';
-import { StackScreensNames } from '@pages/types';
+import { AuthStackScreensNames } from '@pages/types';
+import { AuthScreenNavigationProp } from '@navigation/AuthNavigator';
 
 export const EmailPasswordUpdateSection = () => {
   const { control, handleSubmit } = useForm<ResetPasswordObj>();
-  const { navigate } = useNavigation<MainScreenNavigationProp>();
+  const { navigate } = useNavigation<AuthScreenNavigationProp>();
 
   const onHandleSubmit = async (submitObj: ResetPasswordObj): Promise<void> => {
     const resetPassRes = await authManager.resetPassword(submitObj.email);
-    resetPassRes === AuthState.RESET_PASSWORD_SUCCESS && navigate(StackScreensNames.SIGN_IN);
+    resetPassRes === AuthState.RESET_PASSWORD_SUCCESS && navigate(AuthStackScreensNames.SIGN_IN);
   };
 
   return (

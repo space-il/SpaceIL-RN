@@ -4,19 +4,19 @@ import { SIGN_IN } from '@pages/Auth/SignIn/consts';
 import { Button } from '@components/common/buttons/Button';
 import { useNavigation } from '@react-navigation/native';
 import { SocialAuth } from '@pages/Auth/common/components/SocialAuth';
-import { StackScreensNames } from '@pages/types';
-import { MainScreenNavigationProp } from '@pages/tabs/Main';
+import { AuthStackScreensNames } from '@pages/types';
 import { SeparatorTitle } from '@pages/Auth/common/components/SeparatorTitle';
+import { AuthScreenNavigationProp } from '@navigation/AuthNavigator';
 
 export const AlternativeLoginSection = () => {
-  const { navigate } = useNavigation<MainScreenNavigationProp>();
+  const { navigate } = useNavigation<AuthScreenNavigationProp>();
 
   const onForgotPassPress = () => {
-    navigate(StackScreensNames.FORGOT_PASS);
+    navigate(AuthStackScreensNames.FORGOT_PASS);
   };
 
   const onSignUpPress = () => {
-    navigate(StackScreensNames.SIGN_UP);
+    navigate(AuthStackScreensNames.SIGN_UP);
   };
 
   return (

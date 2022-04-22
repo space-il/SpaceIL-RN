@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { store } from '@app/store';
-import { AppNavigator } from './AppNavigator';
+import { AppNavigator } from '@navigation/AppNavigator';
 import { appTheme } from '@constants/Colors';
 
 const App = () => {
