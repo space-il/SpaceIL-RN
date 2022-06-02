@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.BLUE,
     borderWidth: 1,
-    // borderColor: Colors.gray,
     margin: 12,
   },
   buttonContainer: {
@@ -127,7 +126,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: 1,
   },
-  /* The header takes up all the vertical space not used by the close button. */
   modalHeaderContent: {
     flexGrow: 1,
   },
