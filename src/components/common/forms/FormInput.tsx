@@ -13,13 +13,27 @@ interface Props {
   customTitleStyle?: TextStyle;
   customInputStyle?: TextStyle;
   customErrorStyle?: TextStyle;
+  onlyNumbers?: boolean;
+  numberOfLines?: number;
+  multiline?: boolean;
 }
 
 export const FormInput = (props: Props): ReactElement => {
-  const { name, placeholder, control, rules = {}, isRTL = true, title, secureTextEntry = false } = props;
+  const {
+    name,
+    placeholder,
+    control,
+    rules = {},
+    isRTL = true,
+    title,
+    secureTextEntry = false,
+    onlyNumbers = false,
+    numberOfLines = 1,
+    multiline = false,
+  } = props;
   const { customTitleStyle, customInputStyle, customErrorStyle } = props;
   const rtlStyle: TextStyle = isRTL ? { textAlign: isRTL ? 'right' : 'left' } : {};
-
+  const keyboardType = onlyNumbers ? 'number-pad' : 'default';
   return (
     <Controller
       name={name}
@@ -40,6 +54,9 @@ export const FormInput = (props: Props): ReactElement => {
             placeholder={placeholder}
             secureTextEntry={secureTextEntry}
             style={[styles.input, rtlStyle, { borderColor: error ? 'red' : 'lightgray' }, customInputStyle]}
+            keyboardType={keyboardType}
+            numberOfLines={numberOfLines}
+            multiline={multiline}
           />
           {error && (
             <Text style={[styles.errorText, rtlStyle, customErrorStyle]}>{rules?.required || 'שדה זה הינו חובה'}</Text>

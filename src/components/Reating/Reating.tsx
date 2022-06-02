@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../../constants/Colors';
 import Logo from '../../constants/starIcon.svg';
 
-export const Reating = () => {
-  const [rating, setRating] = useState(0);
-
+type props = {
+  rating: number;
+  setRating: React.Dispatch<React.SetStateAction<number>>;
+};
+export const Reating = (prop: props) => {
+  const { rating, setRating } = prop;
   const ColorStar = (index: number) => {
-    setRating(index);
+    setRating(index + 1);
   };
 
   const ALLSTARS = 5;
@@ -19,7 +22,7 @@ export const Reating = () => {
           onPress={() => {
             return ColorStar(key);
           }}>
-          <Logo width={20} height={20} fill={color} />
+          <Logo width={27} height={27} fill={color} />
         </TouchableOpacity>
       </View>
     );
@@ -28,9 +31,9 @@ export const Reating = () => {
   let starsBody = [];
   for (let i = 0; i < ALLSTARS; i++) {
     if (rating > i) {
-      starsBody.push(generateIcon(i, COLORS.BLACK));
+      starsBody.push(generateIcon(i, COLORS.GOld));
     } else {
-      starsBody.push(generateIcon(i, COLORS.LIGHT_ORANGE));
+      starsBody.push(generateIcon(i, COLORS.WHITE));
     }
   }
   return <View style={styles.button}>{starsBody}</View>;
@@ -39,27 +42,21 @@ export const Reating = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.LIGHT_GREEN,
-    justifyContent: 'center',
-    width: 100,
+    justifyContent: 'flex-end',
   },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
+    borderRadius: 5,
     elevation: 3,
-    backgroundColor: COLORS.LIGHT_GREEN,
   },
   button2: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 1,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 8,
     borderRadius: 1,
     elevation: 3,
-    backgroundColor: COLORS.LIGHT_GREY,
   },
 });
