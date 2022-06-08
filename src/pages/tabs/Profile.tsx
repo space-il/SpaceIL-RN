@@ -7,7 +7,7 @@ import { COLORS } from '@constants/Colors';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SearchPreferences from './Profile/tabs/SearchPreferences';
 import HomeDetails from './Profile/tabs/HomeDetails';
-import ProfileHeader from '../../components/profileHeader/profileHeader';
+import ProfileHeader from '@components/profileHeader/ProfileHeader';
 
 type ProfileScreenNavigationProp = BottomTabNavigationProp<TabNavParamList, TabScreensNames.PROFILE>;
 
@@ -20,7 +20,7 @@ const Tab = createMaterialTopTabNavigator();
 const Profile = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <ProfileHeader profileName={'אנה בלום'} memberSince={'1994'} />
+      <ProfileHeader profileName={'אנה בלום'} memberSince={1994} />
       <ProfileNavigationBar navigation={navigation} />
     </View>
   );
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.LIGHT_BLUE,
     justifyContent: 'center',
+position: "relative"
   },
   tabBarIndicatorStyle: {
     backgroundColor: COLORS.LIGHT_BLUE,
