@@ -5,8 +5,8 @@ import { RootStackParamList } from '@navigation/AppNavigator';
 import { TabScreensNames } from '@pages/tabs/Main/types';
 import { MainStackScreensNames } from '@pages/types';
 import Profile from '../Profile';
-import Search from '../Search';
 import { MyLectures } from '../MyLectures';
+import Search from "@pages/tabs/Search/Search";
 
 export type MainScreenNavigationProp = StackNavigationProp<RootStackParamList, MainStackScreensNames.MAIN>;
 
