@@ -4,7 +4,6 @@ import { COLORS } from '@constants/Colors';
 import { LogoutBtn } from '@components/profileHeader/LogoutBtn';
 import { UserAvatar } from '@components/profileHeader/UserAvatar';
 import LinearGradient from 'react-native-linear-gradient';
-import { MemberSinceDropDown } from '@components/profileHeader/MemberSinceDropDown';
 
 interface Props {
   profileName: string;
@@ -14,7 +13,7 @@ interface Props {
 
 const HEADER_GRADIENT_COLORS = ['#141622', '#0074BC', '#141622'];
 
-const ProfileHeader = ({ profileName, memberSince, image }: Props) => {
+const ProfileHeader = ({ profileName, image }: Props) => {
   return (
     <LinearGradient
       colors={HEADER_GRADIENT_COLORS}
@@ -23,10 +22,7 @@ const ProfileHeader = ({ profileName, memberSince, image }: Props) => {
       style={styles.container}>
       <View style={styles.subContainer}>
         <UserAvatar profileName={profileName} image={image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.profileName}>{profileName}</Text>
-          <MemberSinceDropDown memberSince={memberSince} />
-        </View>
+        <Text style={styles.profileName}>{profileName}</Text>
       </View>
       <View>
         <LogoutBtn btnLabel={'התנתק'} />
@@ -46,11 +42,8 @@ const styles = StyleSheet.create({
   subContainer: {
     flexDirection: 'row-reverse',
   },
-  textContainer: {
-    marginRight: 15,
-    justifyContent: 'center',
-  },
   profileName: {
+    marginRight: 15,
     color: COLORS.WHITE,
     fontSize: 24,
     lineHeight: 24,

@@ -54,6 +54,8 @@ export const MemberSinceDropDown = ({ memberSince }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'absolute',
+    top: 22,
   },
   sinceText: {
     color: COLORS.WHITE,
@@ -73,19 +75,17 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.BLUE,
   },
   sinceDropdownContainer: {
-    position: 'absolute',
-    top: 22,
     borderRadius: 10,
-    maxHeight: 170,
+    maxHeight: 400,
     backgroundColor: COLORS.WHITE,
-    width: 160,
-    zIndex: 100,
+    width: 165,
     padding: 10,
   },
   sinceDropdownItem: {
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   sinceDropdownText: {
     color: COLORS.BLACK,
