@@ -1,6 +1,8 @@
-import React, { ReactElement } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { PopupButton, PopupButtonType } from './PopupButton';
+import React, { ReactElement, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { Modal } from '@components/common/modal/Modal';
+import RenderJsonKeyValueData from '@components/common/RenderJsonData';
+import { popupData } from '@components/popup/popup.mock';
 
 interface Props {
   content?: ReactElement;
@@ -10,12 +12,17 @@ interface Props {
 }
 
 const Popup = ({ content }: Props) => {
+  const [isModalVisible, setIsModalVisible] = useState(true);
+
   return (
-    <View style={styles.container}>
-      {/*{content}*/}
-      <PopupButton text="Cancel" type={PopupButtonType.CONFIRM} />
-      <PopupButton text="Cancel" type={PopupButtonType.CANCEL} />
-    </View>
+    <Modal
+      isVisible={isModalVisible}
+      modalTitleText={'האם תרצו לקחת את ההרצאה?'}
+      primaryBtnLabel={'אישור'}
+      secondaryBtnLabel={'ביטול'}
+      customTitleStyle={styles.popupTitle}>
+      <RenderJsonKeyValueData text={popupData} />
+    </Modal>
   );
 };
 
@@ -26,8 +33,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // height: SCREEN_HEIGHT,
-    // width: SCREEN_WIDTH,
     borderWidth: 1,
+  },
+  popupTitle: {
+    fontSize: 20,
+    lineHeight: 26,
+    fontWeight: 'bold',
+    textAlign: 'right',
   },
 });

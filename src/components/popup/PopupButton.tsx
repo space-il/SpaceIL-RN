@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import React from 'react';
+import { Pressable, StyleSheet, Text, ViewStyle } from 'react-native';
 
 export enum PopupButtonType {
   CONFIRM,

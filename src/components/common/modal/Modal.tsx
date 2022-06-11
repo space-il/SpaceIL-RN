@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, TextStyle, View } from 'react-native';
 import RNModal, { ModalProps } from 'react-native-modal';
 import { BaseText } from '@components/common/BaseText';
 import { Button } from '@components/common/buttons/Button';
@@ -14,6 +14,7 @@ interface Props {
   customModalProps?: ModalProps;
   primaryBtnPressHandler?: () => void;
   secondaryBtnPressHandler?: () => void;
+  customTitleStyle?: TextStyle;
 }
 
 export const Modal: FC<Props> = ({
@@ -25,9 +26,13 @@ export const Modal: FC<Props> = ({
   secondaryBtnLabel,
   primaryBtnPressHandler,
   secondaryBtnPressHandler,
+  children,
+  customTitleStyle,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(isVisible);
   const modalProps = { backdropOpacity: 0.5, ...customModalProps, isVisible: isModalVisible };
+
+  console.log('customModalProps', customModalProps);
 
   useEffect(() => {
     setIsModalVisible(isVisible);
@@ -38,8 +43,9 @@ export const Modal: FC<Props> = ({
   return (
     <RNModal {...modalProps}>
       <View style={styles.modalContent}>
-        <BaseText text={modalTitleText} customTextStyle={styles.modalTitle} />
+        <BaseText text={modalTitleText} customTextStyle={customTitleStyle} />
         {modalDescriptionText && <BaseText text={modalDescriptionText} customTextStyle={styles.modalDescription} />}
+        {children}
         <Button
           btnLabel={primaryBtnLabel}
           onPress={primaryBtnPressHandler || closeModal}
