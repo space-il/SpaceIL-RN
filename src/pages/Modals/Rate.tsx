@@ -7,12 +7,16 @@ import { useForm } from 'react-hook-form';
 import { FormInput } from '@components/common/forms/FormInput';
 import { RatePageLabels } from '@constants/labels/RatePageLabels';
 
-const Rate = () => {
-  const [modalState, onChangeState] = React.useState(true);
+interface props {
+  modalState: boolean;
+  onChangeState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Rate = (pops: props) => {
+  const { modalState, onChangeState } = pops;
   const { control, handleSubmit } = useForm<any>();
   const onHandleSubmit = async (): Promise<void> => {};
   const [rating, setRating] = useState(0);
-
   const FormType = {
     lectureNumber: 'lectureNumber',
     NumberOfParticipants: 'NumberOfParticipants',

@@ -7,12 +7,18 @@ import { FormInput } from '@components/common/forms/FormInput';
 import { useForm } from 'react-hook-form';
 import { UpdateDateLabels } from '@constants/labels/UpdateDateLabels';
 
-const UpdateDate = () => {
+
+interface props {
+  modalState: boolean;
+  onChangeState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UpdateDate = (pops: props) => {
+  const { modalState, onChangeState } = pops;
   const { control, handleSubmit } = useForm<any>({
     defaultValues: {}
   });
   const onHandleSubmit = async (): Promise<void> => {};
-  const [modalState, onChangeState] = React.useState(true);
   const [date, setDate] = React.useState(new Date());
 
   return (

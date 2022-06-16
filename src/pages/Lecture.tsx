@@ -2,8 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { COLORS } from '@constants/Colors';
 import { LecturePageLabels } from '@constants/labels/LecturePageLabels';
+import Rate from '@pages/Modals/Rate';
+import ReturnLecture from '@pages/Modals/ReturnLecture';
+import UpdateDate from "@pages/Modals/UpdateDate";
 
 const Lecture = () => {
+  const [modalRateState, onChangeRateState] = React.useState(false);
+  const [ReturnModalState, onChangeReturnState] = React.useState(false);
+  const [UpdateModalState, onChangeUpdateState] = React.useState(false);
   const UserInfoCard = () => {
     return (
       <View style={styles.cardStyle}>
@@ -31,6 +37,24 @@ const Lecture = () => {
     return (
       <View style={styles.cardStyle}>
         <Text style={styles.Title}>{LecturePageLabels.AssimentDetails.title}</Text>
+        <Text
+          onPress={() => {
+            onChangeRateState(true);
+          }}>
+          {LecturePageLabels.AssimentDetails.unassine}
+        </Text>
+        <Text
+          onPress={() => {
+            onChangeReturnState(true);
+          }}>
+          {LecturePageLabels.AssimentDetails.close}
+        </Text>
+        <Text
+          onPress={() => {
+            onChangeUpdateState(true);
+          }}>
+          {LecturePageLabels.AssimentDetails.updateDate}
+        </Text>
       </View>
     );
   };
@@ -98,7 +122,14 @@ const Lecture = () => {
       </ScrollView>
     );
   };
-  return <View style={{ flex: 1, backgroundColor: COLORS.LIGHT_GREY }}>{rendercards()}</View>;
+  return (
+    <View style={{ flex: 1, backgroundColor: COLORS.LIGHT_GREY }}>
+      {rendercards()}
+      <Rate modalState={modalRateState} onChangeState={onChangeRateState} />
+      <ReturnLecture modalState={ReturnModalState} onChangeState={onChangeReturnState} />
+      <UpdateDate modalState={UpdateModalState} onChangeState={onChangeUpdateState} />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

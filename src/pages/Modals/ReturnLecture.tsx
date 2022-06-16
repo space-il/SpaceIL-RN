@@ -6,10 +6,15 @@ import { useForm } from 'react-hook-form';
 import { FormInput } from '@components/common/forms/FormInput';
 import { ReturnLectureLabels } from '@constants/labels/ReturnLectureLabels';
 
-const ReturnLecture = () => {
+interface props {
+  modalState: boolean;
+  onChangeState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ReturnLecture = (pops: props) => {
+  const { modalState, onChangeState } = pops;
   const { control, handleSubmit } = useForm<any>();
   const onHandleSubmit = async (): Promise<void> => {};
-  const [modalState, onChangeState] = React.useState(true);
   return (
     <Modal
       visible={modalState}

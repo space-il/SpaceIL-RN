@@ -12,6 +12,9 @@ export const LecturePageLabels = {
     title: 'פרטי שיבוץ',
     dateLabel: 'תאריך',
     date: '23 בינואר',
+    unassine: 'ביטול שיוך',
+    close: 'סגירה',
+    updateDate: 'עדכון תאריך',
   },
   LectureDetails: {
     title: 'פרטי הרצאה',
