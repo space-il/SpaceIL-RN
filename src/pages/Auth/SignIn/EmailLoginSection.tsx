@@ -9,7 +9,7 @@ import { COLORS } from '@constants/Colors';
 import { authManager } from '@services/auth/auth.api';
 import { EmailSignInObj } from '@pages/Auth/types';
 import { AuthState } from '@services/auth/types';
-import { setSignInAuthInfo } from '@pages/Auth/authSlice';
+import { setAuthInfo } from '@pages/Auth/authSlice';
 import { useAppDispatch } from '@app/storeUtils';
 
 export const EmailLoginSection = () => {
@@ -18,7 +18,7 @@ export const EmailLoginSection = () => {
 
   const onHandleSubmit = async (submitObj: EmailSignInObj): Promise<void> => {
     const authRes = await authManager.emailSignIn(submitObj.email, submitObj.password);
-    authRes.authState === AuthState.EMAIL_SIGNIN_SUCCESS && dispatch(setSignInAuthInfo(authRes.res));
+    authRes.authState === AuthState.EMAIL_SIGNIN_SUCCESS && dispatch(setAuthInfo(authRes.res));
   };
 
   return (

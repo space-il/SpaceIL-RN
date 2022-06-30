@@ -9,7 +9,7 @@ import { SIGN_UP } from '@pages/Auth/SignUp/consts';
 import { EmailSignUpObj } from '@pages/Auth/types';
 import { authManager } from '@services/auth/auth.api';
 import { useAppDispatch } from '@app/storeUtils';
-import { setSignUpAuthInfo } from '../authSlice';
+import { setAuthInfo } from '../authSlice';
 import { AuthState } from '@services/auth/types';
 
 export const EmailSignUpSection = () => {
@@ -20,7 +20,7 @@ export const EmailSignUpSection = () => {
     const userInfo = { displayName: `${submitObj.firstName} ${submitObj.lastName}` };
     const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password, userInfo);
 
-    authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setSignUpAuthInfo(authRes.res));
+    authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setAuthInfo(authRes.res));
   };
 
   return (
