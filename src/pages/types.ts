@@ -10,3 +10,8 @@ export enum AuthStackScreensNames {
   SIGN_UP = 'SignUp',
   FORGOT_PASS = 'ForgotPass',
 }
+
+export enum SearchStackScreenName {
+  FLEXIBLE_SEARCH = 'חיפוש גמיש',
+  SEARCH_BY_PREFERENCE = 'חיפוש לפי העדפות',
+}

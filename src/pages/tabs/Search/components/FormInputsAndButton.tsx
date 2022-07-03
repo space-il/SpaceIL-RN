@@ -16,10 +16,12 @@ export interface InputForm {
 
 interface Props {
   forms: InputForm[];
+  onSubmit: () => void;
 }
 
-const FormInputsAndButton = ({ forms }: Props) => {
-  const { control, handleSubmit } = useForm();
+export const FormInputsAndButton = (props: Props) => {
+  const { forms, onSubmit } = props;
+  const { control } = useForm();
 
   const renderForms = () => {
     return forms.map((form, index) => (
@@ -35,12 +37,12 @@ const FormInputsAndButton = ({ forms }: Props) => {
     ));
   };
   const onPress = () => {
-    console.log('search button is pressed');
+    onSubmit();
   };
   return (
     <View style={style.container}>
       {renderForms()}
-      <Button btnLabel={'חיפוש'} onPress={handleSubmit(onPress)} customBtnContainerStyle={style.buttonContainer} />
+      <Button btnLabel={'חיפוש'} onPress={onPress} customBtnContainerStyle={style.buttonContainer} />
     </View>
   );
 };
@@ -72,5 +74,3 @@ const style = StyleSheet.create({
     width: 279,
   },
 });
-
-export default FormInputsAndButton;

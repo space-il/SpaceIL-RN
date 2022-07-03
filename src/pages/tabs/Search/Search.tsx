@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { TabScreensNames } from '@pages/tabs/Main/types';
 import { COLORS } from '@constants/Colors';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { TabNavParamList } from '@pages/tabs/Main';
-import SearchByPreference from '@pages/tabs/Search/tabs/SearchByPreference';
-import FlexibleSearch from '@pages/tabs/Search/tabs/FlexibleSearch';
+import { SEARCH } from '@pages/tabs/Search/consts';
+import { SearchStackScreenName } from '@pages/types';
+import { BaseText } from '@components/common/BaseText';
+import { FlexibleSearch } from '@pages/tabs/Search/components/FlexibleSearch';
+import { SearchByPreference } from '@pages/tabs/Search/components/SearchByPreference';
 
 type SearchScreenNavigationProp = BottomTabNavigationProp<TabNavParamList, TabScreensNames.SEARCH>;
 
@@ -19,7 +22,7 @@ const Tab = createMaterialTopTabNavigator();
 const Search = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>חיפוש הרצאה</Text>
+      <BaseText customTextStyle={styles.title} text={SEARCH.TITLE} />
       <SearchNavigationBar navigation={navigation} />
     </View>
   );
@@ -28,7 +31,7 @@ const Search = ({ navigation }: Props) => {
 const SearchNavigationBar = ({}: Props) => {
   return (
     <Tab.Navigator
-      initialRouteName={'חיפוש לפי העדפות'}
+      initialRouteName={SEARCH.SEARCH_BY_PREFERENCE}
       screenOptions={{
         tabBarIndicatorStyle: styles.tabBarIndicatorStyle,
         tabBarLabelStyle: {
@@ -37,8 +40,8 @@ const SearchNavigationBar = ({}: Props) => {
         tabBarActiveTintColor: COLORS.BLACK,
         tabBarInactiveTintColor: COLORS.INPUT_GREY,
       }}>
-      <Tab.Screen name="חיפוש גמיש " component={FlexibleSearch} />
-      <Tab.Screen name="חיפוש לפי העדפות" component={SearchByPreference} />
+      <Tab.Screen name={SearchStackScreenName.FLEXIBLE_SEARCH} component={FlexibleSearch} />
+      <Tab.Screen name={SearchStackScreenName.SEARCH_BY_PREFERENCE} component={SearchByPreference} />
     </Tab.Navigator>
   );
 };
