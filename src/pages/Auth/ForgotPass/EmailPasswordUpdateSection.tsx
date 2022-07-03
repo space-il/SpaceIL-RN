@@ -26,6 +26,7 @@ export const EmailPasswordUpdateSection = () => {
     const resetPassRes = await authManager.resetPassword(submitObj.email);
 
     if (resetPassRes === AuthState.RESET_PASSWORD_SUCCESS) {
+      setIsLoading(false);
       navigate(AuthStackScreensNames.SIGN_IN);
     } else {
       setIsLoading(false);
