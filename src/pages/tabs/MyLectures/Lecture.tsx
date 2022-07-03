@@ -4,10 +4,10 @@ import { COLORS } from '@constants/Colors';
 import { LecturePageLabels } from '@constants/labels/LecturePageLabels';
 import Rate from '@pages/Modals/Rate';
 import ReturnLecture from '@pages/Modals/ReturnLecture';
-import UpdateDate from "@pages/Modals/UpdateDate";
+import UpdateDate from '@pages/Modals/UpdateDate';
 
 const Lecture = () => {
-  const [modalRateState, onChangeRateState] = React.useState(false);
+  const [RateModalState, onChangeRateState] = React.useState(false);
   const [ReturnModalState, onChangeReturnState] = React.useState(false);
   const [UpdateModalState, onChangeUpdateState] = React.useState(false);
   const UserInfoCard = () => {
@@ -37,24 +37,29 @@ const Lecture = () => {
     return (
       <View style={styles.cardStyle}>
         <Text style={styles.Title}>{LecturePageLabels.AssimentDetails.title}</Text>
-        <Text
-          onPress={() => {
-            onChangeRateState(true);
-          }}>
-          {LecturePageLabels.AssimentDetails.unassine}
-        </Text>
-        <Text
-          onPress={() => {
-            onChangeReturnState(true);
-          }}>
-          {LecturePageLabels.AssimentDetails.close}
-        </Text>
-        <Text
-          onPress={() => {
-            onChangeUpdateState(true);
-          }}>
-          {LecturePageLabels.AssimentDetails.updateDate}
-        </Text>
+        <View style={{ alignItems: 'stretch' }}>
+          <Text
+            style={styles.linkText}
+            onPress={() => {
+              onChangeRateState(true);
+            }}>
+            {LecturePageLabels.AssimentDetails.unassine}
+          </Text>
+          <Text
+            style={styles.linkText}
+            onPress={() => {
+              onChangeReturnState(true);
+            }}>
+            {LecturePageLabels.AssimentDetails.close}
+          </Text>
+          <Text
+            style={styles.linkText}
+            onPress={() => {
+              onChangeUpdateState(true);
+            }}>
+            {LecturePageLabels.AssimentDetails.updateDate}
+          </Text>
+        </View>
       </View>
     );
   };
@@ -125,7 +130,7 @@ const Lecture = () => {
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.LIGHT_GREY }}>
       {rendercards()}
-      <Rate modalState={modalRateState} onChangeState={onChangeRateState} />
+      <Rate modalState={RateModalState} onChangeState={onChangeRateState} />
       <ReturnLecture modalState={ReturnModalState} onChangeState={onChangeReturnState} />
       <UpdateDate modalState={UpdateModalState} onChangeState={onChangeUpdateState} />
     </View>
@@ -157,10 +162,13 @@ const styles = StyleSheet.create({
     padding: 5,
     textAlign: 'right',
   },
-  /* The header takes up all the vertical space not used by the close button. */
   infolayout: {
     flexDirection: 'row-reverse',
     marginVertical: 10,
+  },
+  linkText: {
+    textDecorationLine: 'underline',
+    color: COLORS.BLUE,
   },
 });
 

@@ -88,9 +88,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalHeaderCloseText: {
-    fontSize: 25,
-    paddingStart: 25,
-    paddingTop: 35,
+    fontSize: 24,
+    paddingStart: 24,
+    paddingTop: 36,
   },
 });
 

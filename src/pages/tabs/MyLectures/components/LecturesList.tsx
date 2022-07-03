@@ -2,12 +2,12 @@ import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { LectureItem } from './LectureItem';
 import { TabScreensNames } from '@pages/tabs/Main/types';
-import { LectureItemIface, LecturePanelItem } from '../types';
+import { LectureItemIface, LecturePanelItem, MyLectureScreensNames } from "../types";
 import { LecturePanelSheet } from './LecturesActionSheets/LecturePanelSheet';
 
 const panelItems: LecturePanelItem[] = [
-  { id: '0', screenToNavigate: TabScreensNames.PROFILE, text: 'פרטי הרצאה' },
-  { id: '1', screenToNavigate: TabScreensNames.SEARCH, text: 'עדכון תאריך' },
+  { id: '0', screenToNavigate: MyLectureScreensNames.LECTURE, text: 'פרטי הרצאה' },
+  { id: '1', screenToNavigate: MyLectureScreensNames.MY_LECTURE, text: 'עדכון תאריך' },
 ];
 
 interface Props {

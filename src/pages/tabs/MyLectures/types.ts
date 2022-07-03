@@ -1,5 +1,3 @@
-import { TabScreensNames } from '@pages/tabs/Main/types';
-
 export enum LectureSheet {
   PANEL = 'lecture_panel_sheet',
   NAVIGATION = 'lecture_navigation_sheet',
@@ -19,5 +17,10 @@ interface ActionSheetItem {
 
 export interface LecturePanelItem extends ActionSheetItem {
   id: string;
-  screenToNavigate: TabScreensNames;
+  screenToNavigate: MyLectureScreensNames;
+}
+
+export enum MyLectureScreensNames {
+  MY_LECTURE = 'MyLectures',
+  LECTURE = 'Lecture',
 }
