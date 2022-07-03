@@ -10,7 +10,7 @@ import { COLORS } from '@constants/Colors';
 
 export const ErrorModal = () => {
   const { isVisible, title, description, btnHandler } = useAppSelector(selectErrorInfo);
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(isVisible);
 
   const closeModal = () => setIsModalVisible(false);
 
