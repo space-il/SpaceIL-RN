@@ -23,6 +23,7 @@
     "react-hook-form": "^7.28.0",
     "react-native": "0.66.4",
     "react-native-actions-sheet": "^0.6.0",
+    "react-native-date-picker": "^4.2.2",
     "react-native-gesture-handler": "^2.1.0",
     "react-native-modal": "^13.0.1",
     "react-native-pager-view": "^5.4.9",
