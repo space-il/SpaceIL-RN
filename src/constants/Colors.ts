@@ -13,6 +13,7 @@ export const COLORS = {
   // Formal Colors:
   DEEP_BLUE: '#0074bb',
   INPUT_GREY: '#686E74',
+  ERROR_TEXT: 'red',
 };
 
 export const appTheme = {
