@@ -14,19 +14,15 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setSignInAuthInfo: (state, action) => {
+    setAuthInfo: (state, action) => {
       state.isAuthenticated = true;
       state.userInfo = action.payload;
     },
-    setSignUpAuthInfo: (state, action) => {
-      state.isAuthenticated = true;
-      state.userInfo = action.payload;
-    },
-    setSignOutAuthInfo: state => {
+    clearAuthInfo: state => {
       state.isAuthenticated = false;
       state.userInfo = null;
     },
   },
 });
 
-export const { setSignInAuthInfo, setSignUpAuthInfo, setSignOutAuthInfo } = authSlice.actions;
+export const { setAuthInfo, clearAuthInfo } = authSlice.actions;

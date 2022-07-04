@@ -9,4 +9,5 @@ export const SIGN_IN = {
   FORGOT_PASS_LABEL: 'שכחתם סיסמא?',
   SIGN_UP_LABEL: 'עדיין אין לכם חשבון? הירשמו',
   ALTER_TITLE: 'או היכנסו עם',
+  LOGIN_ERR_LABEL: 'אירעה שגיאה',
 };

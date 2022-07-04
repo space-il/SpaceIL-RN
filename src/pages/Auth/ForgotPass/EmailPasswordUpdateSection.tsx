@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { BaseText } from '@components/common/BaseText';
 import { FormInput } from '@components/common/forms/FormInput';
@@ -16,10 +16,22 @@ import { AuthScreenNavigationProp } from '@navigation/AuthNavigator';
 export const EmailPasswordUpdateSection = () => {
   const { control, handleSubmit } = useForm<ResetPasswordObj>();
   const { navigate } = useNavigation<AuthScreenNavigationProp>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [forgotErrMsg, setForgotErrMsg] = useState('');
 
   const onHandleSubmit = async (submitObj: ResetPasswordObj): Promise<void> => {
+    setForgotErrMsg('');
+    setIsLoading(true);
+
     const resetPassRes = await authManager.resetPassword(submitObj.email);
-    resetPassRes === AuthState.RESET_PASSWORD_SUCCESS && navigate(AuthStackScreensNames.SIGN_IN);
+
+    if (resetPassRes === AuthState.RESET_PASSWORD_SUCCESS) {
+      setIsLoading(false);
+      navigate(AuthStackScreensNames.SIGN_IN);
+    } else {
+      setIsLoading(false);
+      setForgotErrMsg(FORGOT_PASS.ERR_LABEL);
+    }
   };
 
   return (
@@ -35,6 +47,8 @@ export const EmailPasswordUpdateSection = () => {
         rules={{ required: `${FORGOT_PASS.EMAIL_TITLE} ${FORGOT_PASS.INPUT_ERROR_TEXT}` }}
       />
       <Button
+        errMsg={forgotErrMsg}
+        isLoading={isLoading}
         btnLabel={FORGOT_PASS.BUTTON}
         onPress={handleSubmit(onHandleSubmit)}
         customBtnContainerStyle={styles.btnContainer}

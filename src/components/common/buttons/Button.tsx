@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, StyleSheet, ViewStyle, TextStyle, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, ViewStyle, TextStyle, TouchableOpacity, ActivityIndicator, View } from 'react-native';
 import { COLORS } from '@constants/Colors';
+import { BaseText } from '@components/common/BaseText';
 
 interface Props {
   btnLabel: string;
@@ -8,22 +9,34 @@ interface Props {
   customBtnContainerStyle?: ViewStyle;
   customBtnLabelStyle?: TextStyle;
   secondaryBtn?: boolean;
+  isLoading?: boolean;
+  customLoaderStyle?: ViewStyle;
+  errMsg?: string;
 }
 
 export const Button = (props: Props) => {
-  const { btnLabel, onPress, secondaryBtn } = props;
-  const { customBtnContainerStyle, customBtnLabelStyle } = props;
+  const { btnLabel, onPress, secondaryBtn, isLoading, errMsg } = props;
+  const { customBtnContainerStyle, customBtnLabelStyle, customLoaderStyle } = props;
   return (
-    <TouchableOpacity
-      style={[secondaryBtn ? styles.containerSecondary : styles.container, customBtnContainerStyle]}
-      onPress={onPress}>
-      <Text style={[secondaryBtn ? styles.btnLabelSecondary : styles.btnLabel, customBtnLabelStyle]}>{btnLabel}</Text>
-    </TouchableOpacity>
+    <>
+      {errMsg ? <BaseText text={errMsg} customTextStyle={styles.errMsg} /> : null}
+      <TouchableOpacity
+        style={[secondaryBtn ? styles.secondaryBtnContainer : styles.btnContainer, customBtnContainerStyle]}
+        onPress={onPress}>
+        {isLoading ? (
+          <ActivityIndicator style={[styles.loaderStyle, customLoaderStyle]} color={COLORS.WHITE} />
+        ) : (
+          <Text style={[secondaryBtn ? styles.btnLabelSecondary : styles.btnLabel, customBtnLabelStyle]}>
+            {btnLabel}
+          </Text>
+        )}
+      </TouchableOpacity>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  btnContainer: {
     backgroundColor: COLORS.DEEP_BLUE,
   },
   btnLabel: {
@@ -32,7 +45,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     fontSize: 16,
   },
-  containerSecondary: {
+  secondaryBtnContainer: {
     backgroundColor: COLORS.WHITE,
   },
   btnLabelSecondary: {
@@ -40,5 +53,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 15,
     fontSize: 16,
+  },
+  loaderStyle: {
+    paddingVertical: 14,
+  },
+  errMsg: {
+    marginTop: 25,
+    textAlign: 'center',
+    color: COLORS.ERROR_TEXT,
   },
 });
