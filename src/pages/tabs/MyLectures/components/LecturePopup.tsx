@@ -15,7 +15,7 @@ interface LecturePopupProps {
 export const LecturePopup = (props: LecturePopupProps) => {
   const { title, description, confirmAction } = props;
 
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const closeModal = () => setIsModalVisible(false);
 
   return (
