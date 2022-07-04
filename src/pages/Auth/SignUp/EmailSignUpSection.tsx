@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { BaseText } from '@components/common/BaseText';
@@ -9,18 +9,28 @@ import { SIGN_UP } from '@pages/Auth/SignUp/consts';
 import { EmailSignUpObj } from '@pages/Auth/types';
 import { authManager } from '@services/auth/auth.api';
 import { useAppDispatch } from '@app/storeUtils';
-import { setSignUpAuthInfo } from '../authSlice';
+import { setAuthInfo } from '../authSlice';
 import { AuthState } from '@services/auth/types';
 
 export const EmailSignUpSection = () => {
   const { control, handleSubmit } = useForm<EmailSignUpObj>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [signupErrMsg, setSignupErrMsg] = useState('');
   const dispatch = useAppDispatch();
 
   const onHandleSubmit = async (submitObj: EmailSignUpObj): Promise<void> => {
+    setSignupErrMsg('');
+    setIsLoading(true);
+
     const userInfo = { displayName: `${submitObj.firstName} ${submitObj.lastName}` };
     const authRes = await authManager.emailSignUp(submitObj.email, submitObj.password, userInfo);
 
-    authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS && dispatch(setSignUpAuthInfo(authRes.res));
+    if (authRes.authState === AuthState.EMAIL_SIGNUP_SUCCESS) {
+      dispatch(setAuthInfo(authRes.res));
+    } else {
+      setIsLoading(false);
+      setSignupErrMsg(SIGN_UP.ERR_LABEL);
+    }
   };
 
   return (
@@ -64,6 +74,8 @@ export const EmailSignUpSection = () => {
         rules={{ required: `${SIGN_UP.PASSWORD_TITLE} ${SIGN_UP.INPUT_ERROR_TEXT}` }}
       />
       <Button
+        errMsg={signupErrMsg}
+        isLoading={isLoading}
         btnLabel={SIGN_UP.BUTTON}
         onPress={handleSubmit(onHandleSubmit)}
         customBtnContainerStyle={styles.btnContainer}

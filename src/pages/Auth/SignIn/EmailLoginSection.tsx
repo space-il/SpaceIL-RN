@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { BaseText } from '@components/common/BaseText';
@@ -9,16 +9,27 @@ import { COLORS } from '@constants/Colors';
 import { authManager } from '@services/auth/auth.api';
 import { EmailSignInObj } from '@pages/Auth/types';
 import { AuthState } from '@services/auth/types';
-import { setSignInAuthInfo } from '@pages/Auth/authSlice';
+import { setAuthInfo } from '@pages/Auth/authSlice';
 import { useAppDispatch } from '@app/storeUtils';
 
 export const EmailLoginSection = () => {
   const { control, handleSubmit } = useForm<EmailSignInObj>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginErrMsg, setLoginErrMsg] = useState('');
   const dispatch = useAppDispatch();
 
   const onHandleSubmit = async (submitObj: EmailSignInObj): Promise<void> => {
+    setLoginErrMsg('');
+    setIsLoading(true);
+
     const authRes = await authManager.emailSignIn(submitObj.email, submitObj.password);
-    authRes.authState === AuthState.EMAIL_SIGNIN_SUCCESS && dispatch(setSignInAuthInfo(authRes.res));
+
+    if (authRes.authState === AuthState.EMAIL_SIGNIN_SUCCESS) {
+      dispatch(setAuthInfo(authRes.res));
+    } else {
+      setIsLoading(false);
+      setLoginErrMsg(SIGN_IN.LOGIN_ERR_LABEL);
+    }
   };
 
   return (
@@ -44,6 +55,8 @@ export const EmailLoginSection = () => {
         rules={{ required: `${SIGN_IN.PASSWORD_TITLE} ${SIGN_IN.INPUT_ERROR_TEXT}` }}
       />
       <Button
+        errMsg={loginErrMsg}
+        isLoading={isLoading}
         btnLabel={SIGN_IN.BUTTON}
         onPress={handleSubmit(onHandleSubmit)}
         customBtnContainerStyle={styles.btnContainer}
@@ -80,4 +93,5 @@ const styles = StyleSheet.create({
   btnContainer: {
     marginTop: 32,
   },
+  errMsg: {},
 });

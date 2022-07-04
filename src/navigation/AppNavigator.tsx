@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useAppSelector } from '@app/storeUtils';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { useAppDispatch, useAppSelector } from '@app/storeUtils';
 import { selectIsAuthenticated } from '@pages/Auth/authSelectors';
 import Splash from '@pages/Splash';
 import Popup from '@components/popup/Popup';
 import { Main } from '@pages/tabs/Main';
 import { MainStackScreensNames } from '@pages/types';
 import { AuthNavigator } from './AuthNavigator';
+import {  clearAuthInfo, setAuthInfo } from '@pages/Auth/authSlice';
 
 export type RootStackParamList = {
   [MainStackScreensNames.SPLASH]: undefined;
@@ -18,6 +20,23 @@ export type RootStackParamList = {
 export const RootStack = createStackNavigator<RootStackParamList>();
 
 export const AppNavigator = () => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const dispatch = useAppDispatch();
+
+  // Handle user state changes
+  const onAuthStateChanged = (user: FirebaseAuthTypes.User | null): void => {
+    user ? dispatch(setAuthInfo(user)) : dispatch(clearAuthInfo());
+    if (initializing) {
+      setInitializing(false);
+    }
+  };
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   return (

@@ -4,4 +4,5 @@ export const FORGOT_PASS = {
   EMAIL_PLACEHOLDER: 'הזינו אימייל',
   BUTTON: 'עדכנו סיסמא',
   INPUT_ERROR_TEXT: 'הינו שדה חובה',
+  ERR_LABEL: 'אירעה שגיאה',
 };

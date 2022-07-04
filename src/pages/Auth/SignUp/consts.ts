@@ -11,4 +11,5 @@ export const SIGN_UP = {
   BUTTON: 'שליחה',
   INPUT_ERROR_TEXT: 'הינו שדה חובה',
   ALTER_TITLE: 'או היכנסו עם',
+  ERR_LABEL: 'אירעה שגיאה',
 };

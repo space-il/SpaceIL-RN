@@ -5,7 +5,7 @@ import { BaseText } from '@components/common/BaseText';
 import { COLORS } from '@constants/Colors';
 import { AuthState } from '@services/auth/types';
 import { useAppDispatch } from '@app/storeUtils';
-import { setSignOutAuthInfo } from '@pages/Auth/authSlice';
+import { clearAuthInfo } from '@pages/Auth/authSlice';
 
 interface Props {
   btnLabel: string;
@@ -16,7 +16,7 @@ export const LogoutBtn = ({ btnLabel }: Props) => {
 
   const handleSignOut = async (): Promise<void> => {
     const res = await authManager.signOut();
-    res === AuthState.SIGNOUT_SUCCESS && dispatch(setSignOutAuthInfo());
+    res === AuthState.SIGNOUT_SUCCESS && dispatch(clearAuthInfo());
   };
 
   return (
