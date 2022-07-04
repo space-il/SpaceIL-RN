@@ -19,7 +19,7 @@ interface Props {
 
 const Tab = createMaterialTopTabNavigator();
 
-const Search = ({ navigation }: Props) => {
+export const Search = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <BaseText customTextStyle={styles.title} text={SEARCH.TITLE} />
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
     height: 4,
   },
   title: {
-    textAlign: 'right',
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 8,
@@ -63,5 +62,3 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 });
-
-export default Search;
