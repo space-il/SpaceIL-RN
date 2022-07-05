@@ -6,7 +6,7 @@ interface PopupState {
 }
 
 const initialState: PopupState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   userInfo: null,
 };
 
